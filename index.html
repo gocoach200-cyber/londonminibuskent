@@ -154,6 +154,27 @@
       border: 1px solid rgba(212,168,67,0.15);
       padding: 2rem;
       min-height: 120px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .widget-container > div,
+    .widget-container iframe,
+    #prebooked_widget,
+    #prebooked_widget > * {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 600px) {
+      .widget-container {
+        padding: 0;
+        border-radius: 10px;
+        border: none;
+        background: transparent;
+      }
+      .booking-section {
+        padding: 30px 1%;
+      }
     }
 
     /* ── TRUST STRIP ── */
