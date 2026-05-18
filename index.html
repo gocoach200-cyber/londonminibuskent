@@ -6,671 +6,616 @@
   <title>London Minibus Transport — 16-Seater Specialists, Medway Kent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --dark: #0a0f1e;
-      --dark-2: #111827;
-      --dark-3: #1a2236;
-      --gold: #c9a84c;
-      --gold-light: #e0c070;
-      --gold-pale: rgba(201,168,76,0.12);
-      --slate: #94a3b8;
+      --ink: #080c14;
+      --ink-2: #0e1520;
+      --ink-3: #151e2e;
+      --gold: #d4a843;
+      --gold-2: #e8c06a;
+      --gold-dim: rgba(212,168,67,0.1);
+      --mist: #8899aa;
       --white: #ffffff;
-      --off-white: #f9f7f2;
-      --text: #1e293b;
+      --paper: #f5f2ec;
+      --card: #f0ece4;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; width: 100%; z-index: 100;
-      background: rgba(10,15,30,0.97);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
+      position: sticky; top: 0; z-index: 200;
+      background: var(--ink);
       padding: 0 6%;
       display: flex; align-items: center; justify-content: space-between;
-      height: 72px;
+      height: 66px;
+      border-bottom: 1px solid rgba(212,168,67,0.18);
     }
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem; font-weight: 700;
-      color: var(--white); letter-spacing: 0.01em;
-      display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem; font-weight: 800;
+      color: var(--white); letter-spacing: -0.01em;
+      text-decoration: none; display: flex; align-items: center; gap: 0.55rem;
     }
-    .logo-icon {
-      width: 38px; height: 38px;
-      background: var(--gold);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
+    .logo-sq {
+      width: 32px; height: 32px; background: var(--gold);
+      border-radius: 6px; display: grid; place-items: center;
+      font-size: 1rem; flex-shrink: 0;
     }
-    .logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.6); text-decoration: none;
-      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em;
-      text-transform: uppercase; transition: color 0.2s;
+    .logo em { color: var(--gold); font-style: normal; }
+    .nav-badge {
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,168,67,0.3);
+      color: var(--gold); font-size: 0.72rem; font-weight: 600;
+      padding: 0.28rem 0.75rem; border-radius: 20px;
+      letter-spacing: 0.06em; text-transform: uppercase;
     }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--gold); color: var(--dark);
-      padding: 0.6rem 1.5rem; border-radius: 6px;
-      font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em;
-      text-transform: uppercase; text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 
     /* ── HERO ── */
     .hero {
-      background: var(--dark);
-      padding: 72px 6% 0;
-      text-align: center;
+      background: var(--ink);
+      padding: 80px 6% 0;
       position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: end;
+      max-width: 100%;
     }
-    .hero::before {
+    .hero::after {
       content: '';
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+      background: radial-gradient(ellipse 60% 70% at 70% 30%, rgba(212,168,67,0.08) 0%, transparent 65%);
       pointer-events: none;
     }
-    .hero-inner { position: relative; z-index: 1; }
-    .hero-pill {
+    .hero-left { position: relative; z-index: 1; padding-bottom: 80px; }
+    .hero-kicker {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1px solid rgba(201,168,76,0.35);
-      border-radius: 30px; padding: 0.4rem 1.1rem;
-      color: var(--gold); font-size: 0.78rem; letter-spacing: 0.14em;
-      text-transform: uppercase; font-weight: 500;
-      margin-bottom: 1.6rem;
-      animation: fadeUp 0.8s ease both;
+      color: var(--gold); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      animation: fadeUp 0.7s ease both;
     }
-    .pill-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .kicker-line { width: 28px; height: 1px; background: var(--gold); }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
       font-weight: 800; color: var(--white);
-      line-height: 1.05; letter-spacing: -0.02em;
-      max-width: 820px; margin: 0 auto 1.4rem;
-      animation: fadeUp 0.8s 0.1s ease both;
+      line-height: 1.02; letter-spacing: -0.03em;
+      margin-bottom: 1.4rem;
+      animation: fadeUp 0.7s 0.1s ease both;
     }
-    .hero h1 .highlight {
+    .hero h1 span {
       color: transparent;
-      -webkit-text-stroke: 2px var(--gold);
+      -webkit-text-stroke: 1.5px var(--gold);
     }
-    .hero h1 em { color: var(--gold); font-style: normal; }
-    .hero-sub {
-      color: rgba(255,255,255,0.5); font-size: 1.05rem;
-      max-width: 500px; margin: 0 auto 2rem; line-height: 1.75;
-      animation: fadeUp 0.8s 0.2s ease both;
+    .hero-desc {
+      color: rgba(255,255,255,0.48); font-size: 1rem; line-height: 1.8;
+      max-width: 420px; margin-bottom: 2.2rem;
+      animation: fadeUp 0.7s 0.2s ease both;
     }
-    .hero-tags {
-      display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
-      margin-bottom: 3rem;
-      animation: fadeUp 0.8s 0.3s ease both;
+    .hero-chips {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      animation: fadeUp 0.7s 0.3s ease both;
     }
-    .hero-tag {
+    .chip {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; padding: 0.35rem 0.9rem;
-      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem; padding: 0.35rem 0.85rem;
+      border-radius: 20px; font-weight: 500;
+    }
+    .hero-right {
+      position: relative; z-index: 1;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 0;
+    }
+    .hero-bus-wrap {
+      font-size: 11rem; line-height: 1;
+      filter: drop-shadow(0 -20px 60px rgba(212,168,67,0.2));
+      animation: float 4s ease-in-out infinite;
     }
 
     /* ── BOOKING WIDGET ── */
-    .booking-wrapper {
-      background: var(--dark-2);
+    .booking-section {
+      background: var(--ink-2);
       border-top: 3px solid var(--gold);
+      padding: 60px 6%;
     }
-    .booking-inner {
-      max-width: 940px; margin: 0 auto;
-      padding: 0 5% 64px;
+    .booking-header {
+      text-align: center; margin-bottom: 2.5rem;
     }
-    .booking-label {
-      text-align: center; padding: 1.6rem 0 2rem;
-      font-size: 0.76rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold); font-weight: 600;
-      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    .booking-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--white); font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 0.5rem;
     }
-    .booking-label::before,
-    .booking-label::after {
-      content: ''; flex: 1; max-width: 120px;
-      height: 1px; background: rgba(201,168,76,0.25);
+    .booking-header p { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+    .booking-divider {
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      margin-bottom: 2.5rem;
     }
-
-    /* ====================================================
-       WIDGET PLACEHOLDER
-       Replace the widget-drop-zone div with your embed code
-       ==================================================== */
-    .widget-drop-zone {
+    .booking-divider span { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+    .booking-divider::before, .booking-divider::after {
+      content: ''; flex: 1; max-width: 100px; height: 1px;
+      background: rgba(212,168,67,0.25);
+    }
+    .widget-container {
+      max-width: 860px; margin: 0 auto;
       background: rgba(255,255,255,0.02);
-      border: 2px dashed rgba(201,168,76,0.35);
-      border-radius: 14px; padding: 60px 40px;
-      text-align: center; position: relative;
-      transition: border-color 0.3s, background 0.3s;
+      border-radius: 16px;
+      border: 1px solid rgba(212,168,67,0.15);
+      padding: 2rem;
+      min-height: 120px;
     }
-    .widget-drop-zone:hover { border-color: var(--gold); background: rgba(201,168,76,0.03); }
-    .widget-badge {
-      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: var(--dark);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; padding: 0.3rem 1.1rem; border-radius: 20px;
-      white-space: nowrap;
-    }
-    .widget-drop-zone .wi { font-size: 3rem; margin-bottom: 1rem; display: block; }
-    .widget-drop-zone h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;
-    }
-    .widget-drop-zone p { color: rgba(255,255,255,0.3); font-size: 0.87rem; line-height: 1.6; max-width: 360px; margin: 0 auto 1.4rem; }
-    .widget-code-hint {
-      background: rgba(0,0,0,0.45); border-radius: 8px;
-      padding: 0.9rem 1.4rem; font-family: monospace;
-      font-size: 0.79rem; color: rgba(201,168,76,0.6);
-      text-align: left; max-width: 460px; margin: 0 auto;
-      border: 1px solid rgba(255,255,255,0.05); line-height: 1.9;
-    }
-    .comment { color: rgba(255,255,255,0.2); }
 
-    /* ── TRUST BAR ── */
-    .trust-bar {
+    /* ── TRUST STRIP ── */
+    .trust-strip {
       background: var(--gold);
-      padding: 1.1rem 6%;
+      padding: 1rem 6%;
+      overflow: hidden;
+    }
+    .trust-inner {
       display: flex; align-items: center; justify-content: center;
       gap: 2.5rem; flex-wrap: wrap;
     }
     .trust-item {
-      display: flex; align-items: center; gap: 0.45rem;
-      font-size: 0.8rem; font-weight: 600; color: var(--dark);
-      letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--ink); letter-spacing: 0.04em; text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    /* ── SECTION COMMONS ── */
-    .section-tag {
-      display: block; color: var(--gold);
-      font-size: 0.74rem; letter-spacing: 0.22em;
-      text-transform: uppercase; font-weight: 600; margin-bottom: 0.7rem;
+    /* ── SECTION LABELS ── */
+    .label {
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 700;
+      color: var(--gold); margin-bottom: 0.8rem; display: block;
     }
-    .section-header { text-align: center; margin-bottom: 3.5rem; }
-    .section-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.8vw, 3rem);
-    }
-    .section-header p { color: var(--slate); max-width: 480px; margin: 0.7rem auto 0; line-height: 1.75; font-size: 0.95rem; }
 
     /* ── ABOUT ── */
-    .about-section { padding: 100px 6%; background: var(--white); }
-    .about-inner {
+    .about-section {
+      padding: 110px 6%; background: var(--white);
+    }
+    .about-grid {
       max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
     }
     .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--dark); line-height: 1.15; margin-bottom: 1.3rem;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--ink);
+      letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 1.4rem;
     }
-    .about-text h2 span { color: var(--gold); }
-    .about-text p { color: #64748b; line-height: 1.85; margin-bottom: 1rem; font-size: 0.94rem; }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-    .about-badges { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
-    .badge {
-      border: 1.5px solid var(--gold);
-      color: var(--gold); font-size: 0.76rem; font-weight: 600;
-      padding: 0.4rem 0.9rem; border-radius: 20px;
-      letter-spacing: 0.05em;
+    .about-text h2 em { color: var(--gold); font-style: normal; }
+    .about-text p { color: #5a6678; line-height: 1.85; font-size: 0.94rem; margin-bottom: 1rem; }
+    .about-text p strong { color: var(--ink); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+    .pill {
+      border: 1.5px solid var(--gold); color: var(--gold);
+      font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem;
+      border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;
     }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat-card {
-      background: var(--dark); border-radius: 12px;
-      padding: 1.8rem 1.5rem; text-align: center;
-      position: relative; overflow: hidden;
+    .numbers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(0,0,0,0.08); border-radius: 16px; overflow: hidden; }
+    .number-block {
+      background: var(--ink); padding: 2rem 1.5rem; text-align: center;
     }
-    .stat-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px; background: var(--gold);
+    .number-block:first-child { border-radius: 16px 0 0 0; }
+    .number-block:nth-child(2) { border-radius: 0 16px 0 0; }
+    .number-block:nth-child(3) { border-radius: 0 0 0 16px; }
+    .number-block:last-child { border-radius: 0 0 16px 0; }
+    .num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.6rem; font-weight: 800;
+      color: var(--gold); display: block; line-height: 1;
     }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem; font-weight: 800;
-      color: var(--gold); line-height: 1; display: block;
-    }
-    .stat-label { color: rgba(255,255,255,0.45); font-size: 0.76rem; margin-top: 0.4rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .num-label { color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.4rem; letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* ── VEHICLE ── */
-    .vehicle-section { padding: 100px 6%; background: var(--off-white); }
+    .vehicle-section { padding: 110px 6%; background: var(--paper); }
+    .vehicle-inner { max-width: 1000px; margin: 0 auto; }
     .vehicle-card {
-      max-width: 900px; margin: 0 auto;
-      background: var(--white); border-radius: 16px;
-      overflow: hidden; box-shadow: 0 4px 40px rgba(0,0,0,0.08);
-      display: grid; grid-template-columns: 1fr 1.2fr;
+      background: var(--ink); border-radius: 20px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1.4fr;
     }
     .vehicle-visual {
-      background: linear-gradient(145deg, var(--dark) 0%, var(--dark-3) 100%);
+      background: linear-gradient(160deg, var(--ink-3) 0%, var(--ink) 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 3rem 2rem; gap: 1rem;
+      padding: 3rem 2rem; gap: 1.2rem;
+      border-right: 1px solid rgba(212,168,67,0.1);
     }
-    .vehicle-emoji { font-size: 5rem; }
-    .vehicle-badge-wrap { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-    .v-badge {
-      background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); font-size: 0.72rem; font-weight: 600;
-      padding: 0.3rem 0.7rem; border-radius: 20px;
+    .bus-icon { font-size: 6rem; filter: drop-shadow(0 0 30px rgba(212,168,67,0.3)); }
+    .v-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .v-tag {
+      background: var(--gold-dim); border: 1px solid rgba(212,168,67,0.25);
+      color: var(--gold); font-size: 0.7rem; font-weight: 700;
+      padding: 0.28rem 0.7rem; border-radius: 20px; letter-spacing: 0.04em;
     }
-    .vehicle-info { padding: 3rem; }
-    .vehicle-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem; color: var(--dark); margin-bottom: 0.6rem;
+    .vehicle-details { padding: 3rem; }
+    .vehicle-details h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--white); letter-spacing: -0.02em;
+      margin-bottom: 0.7rem;
     }
-    .vehicle-info > p { color: var(--slate); line-height: 1.75; font-size: 0.93rem; margin-bottom: 1.8rem; }
-    .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-    .feature-list li {
+    .vehicle-details > p { color: rgba(255,255,255,0.45); font-size: 0.9rem; line-height: 1.75; margin-bottom: 2rem; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .feat {
       display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.85rem; color: var(--text); font-weight: 500;
+      color: rgba(255,255,255,0.7); font-size: 0.84rem; font-weight: 500;
     }
-    .feature-list li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.9rem; }
+    .feat::before { content: '✓'; color: var(--gold); font-weight: 800; font-size: 0.85rem; }
 
     /* ── SERVICES ── */
-    .services-section { padding: 100px 6%; background: var(--dark); }
-    .services-section .section-header h2 { color: var(--white); }
-    .services-section .section-header p { color: rgba(255,255,255,0.4); }
+    .services-section { padding: 110px 6%; background: var(--ink); }
+    .services-section .section-head h2 { color: var(--white); }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+    .section-head h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
+    }
+    .section-head p { color: var(--mist); max-width: 460px; margin: 0.7rem auto 0; line-height: 1.75; font-size: 0.93rem; }
     .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem; max-width: 1100px; margin: 0 auto;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px; padding: 2rem 1.7rem;
-      transition: border-color 0.25s, background 0.25s, transform 0.2s;
-    }
-    .service-card:hover { border-color: rgba(201,168,76,0.5); background: var(--gold-pale); transform: translateY(-3px); }
-    .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-    .service-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--white); margin-bottom: 0.45rem; }
-    .service-card p { font-size: 0.84rem; color: rgba(255,255,255,0.38); line-height: 1.7; }
-
-    /* ── COVERAGE ── */
-    .coverage-section { padding: 100px 6%; background: var(--white); }
-    .coverage-inner {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 1px; background: rgba(255,255,255,0.06);
       max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start;
+      border-radius: 16px; overflow: hidden;
     }
-    .coverage-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--dark); margin-bottom: 1.2rem; line-height: 1.15;
-    }
-    .coverage-inner p { color: #64748b; line-height: 1.85; font-size: 0.94rem; margin-bottom: 1rem; }
-    .route-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-    .route-card {
-      background: var(--off-white); border-radius: 10px;
-      padding: 0.9rem 1rem; display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.85rem; font-weight: 500; color: var(--dark);
-      border-left: 3px solid var(--gold);
+    .svc {
+      background: var(--ink-3); padding: 2rem 1.8rem;
       transition: background 0.2s;
     }
-    .route-card:hover { background: #f0ead8; }
-    .route-card .pin { color: var(--gold); font-size: 0.95rem; }
+    .svc:hover { background: rgba(212,168,67,0.06); }
+    .svc-icon { font-size: 1.8rem; margin-bottom: 0.9rem; display: block; }
+    .svc h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+    .svc p { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.7; }
+
+    /* ── COVERAGE ── */
+    .coverage-section { padding: 110px 6%; background: var(--white); }
+    .coverage-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .coverage-text h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--ink);
+      letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .coverage-text p { color: #5a6678; line-height: 1.85; font-size: 0.94rem; margin-bottom: 1rem; }
+    .dest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .dest {
+      background: var(--paper); border-radius: 8px;
+      padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.84rem; font-weight: 600; color: var(--ink);
+      border-left: 3px solid var(--gold);
+    }
 
     /* ── WHY ── */
-    .why-section { padding: 100px 6%; background: var(--off-white); }
-    .why-section .section-header h2 { color: var(--dark); }
+    .why-section { padding: 110px 6%; background: var(--paper); }
     .why-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.5rem; max-width: 1100px; margin: 0 auto;
     }
     .why-card {
-      background: var(--white); border-radius: 12px;
-      padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-      border-top: 3px solid var(--gold);
+      background: var(--white); border-radius: 14px;
+      padding: 2rem; position: relative; overflow: hidden;
       transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
-    .why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.09); }
-    .why-card .icon { font-size: 1.9rem; margin-bottom: 0.9rem; display: block; }
-    .why-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--dark); margin-bottom: 0.45rem; }
-    .why-card p { font-size: 0.84rem; color: var(--slate); line-height: 1.7; }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--gold);
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .why-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+    .why-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.45rem; }
+    .why-card p { font-size: 0.83rem; color: var(--mist); line-height: 1.7; }
 
     /* ── REVIEWS ── */
-    .reviews-section { padding: 100px 6%; background: var(--dark-2); }
-    .reviews-section .section-header h2 { color: var(--white); }
-    .reviews-section .section-header p { color: rgba(255,255,255,0.4); }
+    .reviews-section { padding: 110px 6%; background: var(--ink); }
     .reviews-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.2rem; max-width: 1100px; margin: 0 auto;
     }
-    .review-card {
+    .review {
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px; padding: 2rem;
+      border-radius: 14px; padding: 1.8rem;
       transition: border-color 0.2s;
     }
-    .review-card:hover { border-color: rgba(201,168,76,0.3); }
-    .stars { color: var(--gold); font-size: 0.88rem; margin-bottom: 0.9rem; letter-spacing: 0.1em; }
-    .review-card p { font-size: 0.88rem; color: rgba(255,255,255,0.48); line-height: 1.75; margin-bottom: 1.3rem; font-style: italic; }
-    .reviewer { font-weight: 600; font-size: 0.82rem; color: var(--gold); }
-    .reviewer-loc { color: rgba(255,255,255,0.25); font-weight: 400; }
+    .review:hover { border-color: rgba(212,168,67,0.3); }
+    .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 0.9rem; }
+    .review p { font-size: 0.87rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 1.2rem; font-style: italic; }
+    .reviewer { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--gold); }
+    .reviewer span { color: rgba(255,255,255,0.25); font-family: 'Outfit', sans-serif; font-weight: 400; }
 
     /* ── CONTACT ── */
-    .contact-section { padding: 100px 6%; background: var(--off-white); text-align: center; }
+    .contact-section { padding: 110px 6%; background: var(--paper); text-align: center; }
     .contact-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem); color: var(--dark); margin-bottom: 0.8rem;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--ink); letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
     }
-    .contact-section > p { color: var(--slate); max-width: 440px; margin: 0 auto 2.8rem; line-height: 1.75; }
-    .contact-cards { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
-    .contact-card {
-      background: var(--white); border-radius: 12px;
-      padding: 2rem 2.4rem; min-width: 190px;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    .contact-section > p { color: var(--mist); max-width: 400px; margin: 0 auto 3rem; line-height: 1.75; }
+    .contact-cards { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .ccard {
+      background: var(--white); border-radius: 14px;
+      padding: 1.8rem 2.2rem; min-width: 185px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
       border-bottom: 3px solid var(--gold);
       transition: transform 0.2s;
     }
-    .contact-card:hover { transform: translateY(-3px); }
-    .contact-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .contact-card .label { color: var(--slate); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
-    .contact-card .value { color: var(--dark); font-size: 0.95rem; font-weight: 600; }
+    .ccard:hover { transform: translateY(-3px); }
+    .ccard .ci { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .ccard .cl { color: var(--mist); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .ccard .cv { color: var(--ink); font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 3.5rem 6%;
-    }
+    footer { background: var(--ink); padding: 3.5rem 6%; border-top: 1px solid rgba(255,255,255,0.05); }
     .footer-inner {
       max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
     }
-    .footer-brand p { color: rgba(255,255,255,0.3); font-size: 0.83rem; line-height: 1.75; max-width: 280px; margin-top: 0.9rem; }
-    .footer-col h4 { color: rgba(255,255,255,0.4); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .footer-brand p { color: rgba(255,255,255,0.28); font-size: 0.82rem; line-height: 1.75; max-width: 270px; margin-top: 0.8rem; }
+    .footer-col h4 { color: rgba(255,255,255,0.35); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; }
     .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.55rem; }
-    .footer-col ul li a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.84rem; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
     .footer-bottom {
       max-width: 1100px; margin: 2.5rem auto 0;
       padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
     }
-    .footer-bottom p { color: rgba(255,255,255,0.2); font-size: 0.77rem; }
+    .footer-bottom p { color: rgba(255,255,255,0.18); font-size: 0.76rem; }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-inner, .coverage-inner, .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid, .coverage-grid, .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .vehicle-card { grid-template-columns: 1fr; }
-      .trust-bar { gap: 1.2rem; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .vehicle-visual { display: none; }
+    }
+    @media (max-width: 600px) {
+      .trust-inner { gap: 1rem; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
   <a href="#" class="logo">
-    <div class="logo-icon">🚐</div>
-    London <span>Minibus</span> Transport
+    <div class="logo-sq">🚐</div>
+    London <em>Minibus</em> Transport
   </a>
-
+  <span class="nav-badge">Medway, Kent</span>
 </nav>
+
+<!-- BOOKING WIDGET — TOP OF PAGE -->
+<div class="booking-section" id="book">
+  <div class="booking-header">
+    <h2>Book Your Minibus Instantly</h2>
+    <p>Medway 16-Seater Transport — also serving London &amp; the whole of the UK</p>
+  </div>
+  <div class="booking-divider"><span>Live Availability</span></div>
+  <div class="widget-container">
+    <div id="prebooked_widget"></div>
+  </div>
+
+  <!-- HOW IT WORKS — below widget -->
+  <div style="max-width:680px;margin:2.5rem auto 0;background:rgba(212,168,67,0.07);border:1px solid rgba(212,168,67,0.2);border-radius:14px;padding:1.6rem 2rem;">
+    <strong style="color:var(--gold);display:block;font-family:'Georgia',serif;font-size:1rem;font-style:italic;margin-bottom:1rem;text-align:center;">How It Works</strong>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+      <li style="color:rgba(255,255,255,0.78);font-size:0.88rem;line-height:1.6;display:flex;gap:0.7rem;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">→</span> Submit your contact details and journey requirements in the form above.</li>
+      <li style="color:rgba(255,255,255,0.78);font-size:0.88rem;line-height:1.6;display:flex;gap:0.7rem;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">→</span> Use the <strong style="color:var(--gold-2);font-family:'Georgia',serif;font-style:italic;">Messenger tab</strong> to live chat directly with the operator.</li>
+      <li style="color:rgba(255,255,255,0.78);font-size:0.88rem;line-height:1.6;display:flex;gap:0.7rem;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">→</span> The operator will select your vehicle and send you a confirmed quote.</li>
+      <li style="color:rgba(255,255,255,0.78);font-size:0.88rem;line-height:1.6;display:flex;gap:0.7rem;align-items:flex-start;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">→</span> Browse <strong style="color:var(--gold-2);font-family:'Georgia',serif;font-style:italic;">genuine customer reviews</strong> and manage your booking — all in one place.</li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://unpkg.com/prebooked@1.1.2/dist/umd/prebooked.umd.js"></script>
+<script>
+  Prebooked.renderWidget('prebooked_widget', {
+    user_id: '69e7d6a009486b33bbef3d53',
+  });
+</script>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-pill">
-      <span class="pill-dot"></span>
-      Medway, Kent — Serving London &amp; the UK
+  <div class="hero-left">
+    <div class="hero-kicker"><span class="kicker-line"></span> Est. 2015 — 10 Years on the Road</div>
+    <h1>Group<br>Travel,<br><span>Done Right.</span></h1>
+    <p class="hero-desc">16-seater minibus hire from Medway, Kent. Professional, punctual and priced fairly — whether you're crossing London or crossing the country.</p>
+    <div class="hero-chips">
+      <span class="chip">🚐 Medway 16-Seater Transport</span>
+      <span class="chip">📍 Also Serving London</span>
+      <span class="chip">🇬🇧 UK-Wide Travel</span>
+      <span class="chip">⭐ 4.9 Rated</span>
     </div>
-    <h1>Your Group.<br><em>Our Road.</em></h1>
-    <p class="hero-sub">Premium 16-seater minibus hire from Medway, Kent. Comfortable, reliable and professional — wherever you need to go.</p>
-    <div class="hero-tags">
-      <span class="hero-tag">🚐 16-Seater Specialist</span>
-      <span class="hero-tag">📍 Based in Medway, Kent</span>
-      <span class="hero-tag">🇬🇧 Travel Anywhere in the UK</span>
-      <span class="hero-tag">⭐ 10 Years Experience</span>
-    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bus-wrap">🚐</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     BOOKING WIDGET — TOP OF PAGE
-     ══════════════════════════════════════ -->
-<div class="booking-wrapper" id="book">
-  <div class="booking-inner">
-    <div class="booking-label">Check Availability &amp; Book Instantly</div>
-
-    <!-- =====================================================
-         REPLACE EVERYTHING INSIDE THIS DIV WITH YOUR WIDGET
-         ===================================================== -->
-    <div class=<div id="prebooked_widget"></div>
-
-<script src="https://unpkg.com/prebooked@1.1.2/dist/umd/prebooked.umd.js"></script>
-
-<script>
-    Prebooked.renderWidget('prebooked_widget', {
-        user_id: '69e7d6a009486b33bbef3d53',
-    });
-</script>>
-      <span class="widget-badge">📍 Booking Widget Goes Here</span>
-      <span class="wi">🗓️</span>
-      <h3>Instant Booking</h3>
-      <p>Your booking widget will appear here. Paste your embed code to replace this placeholder.</p>
-      <div class="widget-code-hint">
-        <span class="comment">&lt;!-- Paste your widget script --&gt;</span><br>
-        &lt;script src="your-widget.js"&gt;&lt;/script&gt;<br><br>
-        <span class="comment">&lt;!-- Paste your widget div --&gt;</span><br>
-        &lt;div id="your-booking-widget"&gt;&lt;/div&gt;
-      </div>
-    </div>
-    <!-- END WIDGET -->
-
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">✅ Fully Licensed</div>
+    <div class="trust-item">🏅 10 Years Experience</div>
+    <div class="trust-item">🚐 16-Seater Specialist</div>
+    <div class="trust-item">🇬🇧 UK-Wide Travel</div>
+    <div class="trust-item">⭐ 4.9 / 5 Rating</div>
   </div>
-</div>
-<!-- ══════════════════════════════════════ -->
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item">✅ Fully Licensed &amp; Insured</div>
-  <div class="trust-item">🏅 10 Years Experience</div>
-  <div class="trust-item">🚐 16-Seater Specialist</div>
-  <div class="trust-item">🇬🇧 UK-Wide Travel</div>
-  <div class="trust-item">⭐ 4.9 / 5 Rating</div>
 </div>
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
-  <div class="about-inner">
+  <div class="about-grid">
     <div class="about-text">
-      <span class="section-tag">About Us</span>
-      <h2>Medway's Trusted <span>Minibus</span> Specialists</h2>
-      <p>Based in the heart of Medway, Kent, London Minibus Transport has been getting groups where they need to go for over a decade. What started as a passion for providing genuinely reliable transport has grown into one of the most trusted minibus operators in the region.</p>
-      <p>We specialise in <strong>16-seater minibus hire</strong> — the perfect size for most groups. Big enough for a team, small enough to park anywhere. We know the roads between Kent, London and the rest of the UK inside out, and we pride ourselves on <strong>punctuality, professionalism and a smooth journey every time</strong>.</p>
-      <p>Whether it's a local trip across Kent or a long-distance run to Scotland, our experienced driver will get you there safely, comfortably and on time.</p>
-      <div class="about-badges">
-        <span class="badge">PCV Licensed</span>
-        <span class="badge">Fully Insured</span>
-        <span class="badge">DBS Checked</span>
-        <span class="badge">Est. 2015</span>
+      <span class="label">About Us</span>
+      <h2>Medway's Most Trusted <em>Minibus</em> Operator</h2>
+      <p>Founded in 2015 in the heart of Medway, Kent, London Minibus Transport has spent over a decade building a reputation for one thing: showing up on time, every time.</p>
+      <p>We specialise exclusively in <strong>16-seater minibus hire</strong> — the sweet spot for most groups. Big enough for the whole team, easy to park, comfortable for every journey.</p>
+      <p>From local school runs across Kent to long-haul trips to Edinburgh, we've handled it all. Our drivers know London's roads and every major UK route inside out.</p>
+      <div class="pill-row">
+        <span class="pill">PCV Licensed</span>
+        <span class="pill">DBS Checked</span>
+        <span class="pill">Fully Insured</span>
+        <span class="pill">Est. 2015</span>
       </div>
     </div>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-num">10+</span>
-        <span class="stat-label">Years Operating</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">8,000+</span>
-        <span class="stat-label">Happy Passengers</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">98%</span>
-        <span class="stat-label">On-Time Rate</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">4.9★</span>
-        <span class="stat-label">Customer Rating</span>
-      </div>
+    <div class="numbers-grid">
+      <div class="number-block"><span class="num">10+</span><div class="num-label">Years Operating</div></div>
+      <div class="number-block"><span class="num">8k+</span><div class="num-label">Passengers</div></div>
+      <div class="number-block"><span class="num">98%</span><div class="num-label">On-Time Rate</div></div>
+      <div class="number-block"><span class="num">4.9★</span><div class="num-label">Rating</div></div>
     </div>
   </div>
 </section>
 
 <!-- VEHICLE -->
 <section class="vehicle-section" id="vehicle">
-  <div class="section-header">
-    <span class="section-tag">Our Vehicle</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,3rem);color:var(--dark)">The 16-Seater — Built for Groups</h2>
-    <p style="color:var(--slate);max-width:480px;margin:0.7rem auto 0;line-height:1.75;font-size:0.95rem">Spacious, modern and comfortable. The ideal vehicle for groups up to 16 passengers.</p>
-  </div>
-  <div class="vehicle-card">
-    <div class="vehicle-visual">
-      <div class="vehicle-emoji">🚐</div>
-      <div class="vehicle-badge-wrap">
-        <span class="v-badge">16 Seats</span>
-        <span class="v-badge">Under 5 Yrs Old</span>
-        <span class="v-badge">Deep Cleaned</span>
-      </div>
+  <div class="vehicle-inner">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <span class="label">Our Vehicle</span>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;color:var(--ink)">The 16-Seater — Built for Every Group</h2>
     </div>
-    <div class="vehicle-info">
-      <h3>16-Seater Minibus</h3>
-      <p>Our modern 16-seater is the perfect group transport solution. Comfortable, spacious and well-equipped for both short local journeys and long UK-wide trips.</p>
-      <ul class="feature-list">
-        <li>Air Conditioning</li>
-        <li>USB Charging Points</li>
-        <li>Generous Luggage Space</li>
-        <li>Reclining Seats</li>
-        <li>Tinted Windows</li>
-        <li>Seatbelts Throughout</li>
-        <li>Step-Free Entry</li>
-        <li>Professional Driver</li>
-      </ul>
+    <div class="vehicle-card">
+      <div class="vehicle-visual">
+        <div class="bus-icon">🚐</div>
+        <div class="v-tags">
+          <span class="v-tag">16 Seats</span>
+          <span class="v-tag">Under 5 Yrs</span>
+          <span class="v-tag">Deep Cleaned</span>
+        </div>
+      </div>
+      <div class="vehicle-details">
+        <span class="label">16-Seater Minibus</span>
+        <h3>Modern, Comfortable &amp; Spotless</h3>
+        <p>Our vehicle is under 5 years old, deep-cleaned after every hire and fully maintained to DVSA standards. You'll notice the difference the moment you step in.</p>
+        <div class="features">
+          <div class="feat">Air Conditioning</div>
+          <div class="feat">USB Charging</div>
+          <div class="feat">Luggage Space</div>
+          <div class="feat">Reclining Seats</div>
+          <div class="feat">Tinted Windows</div>
+          <div class="feat">Seatbelts Throughout</div>
+          <div class="feat">Step-Free Entry</div>
+          <div class="feat">Professional Driver</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services-section" id="services">
-  <div class="section-header">
-    <span class="section-tag">What We Do</span>
+  <div class="section-head">
+    <span class="label">What We Do</span>
     <h2>Services We Provide</h2>
-    <p>From local Kent runs to nationwide UK travel — we cover it all.</p>
+    <p>Whatever the occasion, whatever the distance — we've got you covered.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card"><span class="service-icon">✈️</span><h3>Airport Transfers</h3><p>Gatwick, Heathrow, Stansted and London City. We track your flight and handle all luggage stops.</p></div>
-    <div class="service-card"><span class="service-icon">🏢</span><h3>Corporate Travel</h3><p>Staff transfers, client hospitality and business events across Kent, London and the UK.</p></div>
-    <div class="service-card"><span class="service-icon">🎓</span><h3>School &amp; College Trips</h3><p>DBS-checked driver, full insurance and experience working with schools across Medway and Kent.</p></div>
-    <div class="service-card"><span class="service-icon">💒</span><h3>Wedding Transport</h3><p>Getting your guests there in style and on schedule. We coordinate timing so nothing is missed.</p></div>
-    <div class="service-card"><span class="service-icon">⚽</span><h3>Sports &amp; Events</h3><p>Football, rugby, concerts, festivals — we get your group to any venue across the UK.</p></div>
-    <div class="service-card"><span class="service-icon">🗺️</span><h3>Day Trips &amp; Excursions</h3><p>London sightseeing, Brighton, Bath, the Cotswolds — let us handle the driving.</p></div>
-    <div class="service-card"><span class="service-icon">🎉</span><h3>Nights Out &amp; Celebrations</h3><p>Hen dos, stag parties and birthday trips anywhere in the UK. Safe, reliable and on time.</p></div>
-    <div class="service-card"><span class="service-icon">🏥</span><h3>Medical &amp; Care Transport</h3><p>Comfortable, patient transport for group medical appointments and care home outings.</p></div>
+    <div class="svc"><span class="svc-icon">✈️</span><h3>Airport Transfers</h3><p>Gatwick, Heathrow, Stansted and London City. Flight tracked, always on time.</p></div>
+    <div class="svc"><span class="svc-icon">🏢</span><h3>Corporate Travel</h3><p>Staff transfers, client hospitality and business events across Kent and the UK.</p></div>
+    <div class="svc"><span class="svc-icon">🎓</span><h3>School Trips</h3><p>DBS-checked driver, full insurance, experience working with schools across Medway.</p></div>
+    <div class="svc"><span class="svc-icon">💒</span><h3>Weddings</h3><p>Getting your guests there in style and on schedule. Every time.</p></div>
+    <div class="svc"><span class="svc-icon">⚽</span><h3>Sports &amp; Events</h3><p>Football, rugby, concerts, festivals — any venue, anywhere in the UK.</p></div>
+    <div class="svc"><span class="svc-icon">🗺️</span><h3>Day Trips</h3><p>London, Brighton, Bath, the Cotswolds — we do the driving, you enjoy the journey.</p></div>
+    <div class="svc"><span class="svc-icon">🎉</span><h3>Nights Out</h3><p>Hen dos, stag parties and birthday trips. Safe, reliable and always on time.</p></div>
+    <div class="svc"><span class="svc-icon">🏥</span><h3>Medical Transport</h3><p>Comfortable group transport for medical appointments and care home outings.</p></div>
   </div>
 </section>
 
 <!-- COVERAGE -->
 <section class="coverage-section" id="coverage">
-  <div class="coverage-inner">
-    <div>
-      <span class="section-tag">Where We Travel</span>
+  <div class="coverage-grid">
+    <div class="coverage-text">
+      <span class="label">Coverage</span>
       <h2>Based in Medway. Travelling Everywhere.</h2>
-      <p>Our home base is Medway, Kent — perfectly positioned for London and the South East. But don't let that limit you. We regularly travel the length and breadth of the UK, from Cornwall to the Scottish Highlands.</p>
-      <p>We know the routes from Kent to every major UK city and handle long-distance journeys with ease. Fixed pricing, no hidden extras and a driver who knows how to get there efficiently.</p>
-      <p><strong>Regularly travelled routes include:</strong> Medway to London, Medway to Gatwick, Medway to Heathrow, Kent to Manchester, Kent to Edinburgh and beyond.</p>
+      <p>Our home is Medway, Kent — perfectly placed for London and the South East. But we travel the full length of the UK, from Cornwall to the Scottish Highlands.</p>
+      <p>Fixed pricing on all routes. No fuel surcharges, no surprises. Just a reliable driver and a comfortable journey, wherever you need to go.</p>
+      <p><strong>Popular routes:</strong> Medway to London, Kent to Gatwick, Kent to Heathrow, London to Edinburgh, Kent to Manchester and beyond.</p>
     </div>
-    <div>
-      <div class="route-cards">
-        <div class="route-card"><span class="pin">📍</span> London</div>
-        <div class="route-card"><span class="pin">📍</span> Gatwick Airport</div>
-        <div class="route-card"><span class="pin">📍</span> Heathrow Airport</div>
-        <div class="route-card"><span class="pin">📍</span> Brighton</div>
-        <div class="route-card"><span class="pin">📍</span> Birmingham</div>
-        <div class="route-card"><span class="pin">📍</span> Manchester</div>
-        <div class="route-card"><span class="pin">📍</span> Edinburgh</div>
-        <div class="route-card"><span class="pin">📍</span> Cardiff</div>
-        <div class="route-card"><span class="pin">📍</span> Bristol</div>
-        <div class="route-card"><span class="pin">📍</span> Leeds</div>
-        <div class="route-card"><span class="pin">📍</span> Oxford</div>
-        <div class="route-card"><span class="pin">📍</span> Anywhere in the UK</div>
-      </div>
+    <div class="dest-grid">
+      <div class="dest">📍 London</div>
+      <div class="dest">📍 Gatwick Airport</div>
+      <div class="dest">📍 Heathrow Airport</div>
+      <div class="dest">📍 Brighton</div>
+      <div class="dest">📍 Birmingham</div>
+      <div class="dest">📍 Manchester</div>
+      <div class="dest">📍 Edinburgh</div>
+      <div class="dest">📍 Cardiff</div>
+      <div class="dest">📍 Bristol</div>
+      <div class="dest">📍 Leeds</div>
+      <div class="dest">📍 Oxford</div>
+      <div class="dest">📍 Anywhere in the UK</div>
     </div>
   </div>
 </section>
 
-<!-- WHY US -->
+<!-- WHY -->
 <section class="why-section" id="why">
-  <div class="section-header">
-    <span class="section-tag">Why Choose Us</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,3rem);color:var(--dark)">10 Years. Thousands of Happy Passengers.</h2>
+  <div class="section-head">
+    <span class="label">Why Choose Us</span>
+    <h2 style="color:var(--ink)">10 Years. Thousands of Happy Passengers.</h2>
     <p>A decade of reliability speaks louder than any promise.</p>
   </div>
   <div class="why-grid">
-    <div class="why-card"><span class="icon">🛡️</span><h3>Fully Licensed &amp; Insured</h3><p>PCV licensed driver, full public hire insurance and vehicles inspected to DVSA standards — your group is in safe hands.</p></div>
-    <div class="why-card"><span class="icon">⏱️</span><h3>Punctuality is Our Promise</h3><p>We've maintained a 98% on-time record over 10 years. Live traffic monitoring and pre-planned routes mean we're always ahead of delays.</p></div>
-    <div class="why-card"><span class="icon">💷</span><h3>Fixed, Transparent Pricing</h3><p>No fuel surcharges, no last-minute extras. Your quote is your final price — always.</p></div>
-    <div class="why-card"><span class="icon">🚐</span><h3>16-Seater Specialists</h3><p>We focus on what we do best — 16-seater minibus hire. One vehicle, perfected. Maximum comfort for your group.</p></div>
-    <div class="why-card"><span class="icon">🧹</span><h3>Clean, Modern Vehicle</h3><p>Deep-cleaned after every hire, regularly serviced and under 5 years old. You'll notice the difference immediately.</p></div>
-    <div class="why-card"><span class="icon">🤝</span><h3>Local Knowledge, National Reach</h3><p>Born and based in Medway, we know Kent's roads inside out — and we're equally confident on any route across the UK.</p></div>
+    <div class="why-card"><span class="why-icon">🛡️</span><h3>Fully Licensed &amp; Insured</h3><p>PCV licensed, full public hire insurance, DVSA-standard inspections. Your group is in safe hands.</p></div>
+    <div class="why-card"><span class="why-icon">⏱️</span><h3>Punctuality Guaranteed</h3><p>98% on-time record over 10 years. Live traffic monitoring, pre-planned routes. We're always ahead.</p></div>
+    <div class="why-card"><span class="why-icon">💷</span><h3>Fixed Transparent Pricing</h3><p>No fuel surcharges, no last-minute extras. Your quote is your final price. Always.</p></div>
+    <div class="why-card"><span class="why-icon">🚐</span><h3>16-Seater Specialists</h3><p>We focus on what we do best. One vehicle, perfected. Maximum comfort for your group.</p></div>
+    <div class="why-card"><span class="why-icon">🧹</span><h3>Clean Modern Vehicle</h3><p>Deep-cleaned after every hire, under 5 years old, maintained to the highest standard.</p></div>
+    <div class="why-card"><span class="why-icon">🤝</span><h3>Local Knowledge</h3><p>Born and based in Medway. We know Kent's roads inside out — and every major UK route too.</p></div>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="reviews-section">
-  <div class="section-header">
-    <span class="section-tag">Reviews</span>
-    <h2>What Our Passengers Say</h2>
+  <div class="section-head">
+    <span class="label">Reviews</span>
+    <h2 style="color:var(--white)">What Our Passengers Say</h2>
     <p>Rated 4.9 out of 5 — consistently, for over 10 years.</p>
   </div>
   <div class="reviews-grid">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Used London Minibus Transport for our whole team's trip from Medway to London for a conference. Immaculate vehicle, incredibly punctual and the driver was brilliant. Highly recommended."</p>
-      <span class="reviewer">Mark T. <span class="reviewer-loc">— Medway, Kent</span></span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Booked for our school trip and everything went perfectly. The driver was patient, professional and the minibus was spotless. Parents were very impressed. Will book again without hesitation."</p>
-      <span class="reviewer">Mrs. Collins <span class="reviewer-loc">— Year 6 Teacher, Rochester</span></span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Fantastic service for our hen weekend from Kent to Edinburgh. Long journey but so comfortable, driver was great company and we arrived safely. Couldn't have asked for more."</p>
-      <span class="reviewer">Lauren S. <span class="reviewer-loc">— Chatham, Kent</span></span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Airport run to Heathrow with 14 of us and all our luggage. Absolutely stress-free. Driver tracked our return flight and was waiting for us. Will only use these from now on."</p>
-      <span class="reviewer">David H. <span class="reviewer-loc">— Gillingham, Kent</span></span>
-    </div>
+    <div class="review"><div class="stars">★★★★★</div><p>"Medway to London for our whole team's conference. Immaculate vehicle, incredibly punctual, brilliant driver. Already booked again for Christmas."</p><div class="reviewer">Mark T. <span>— Medway, Kent</span></div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>"School trip to Stratford-upon-Avon — everything ran like clockwork. The driver was patient and professional throughout. Would highly recommend."</p><div class="reviewer">Mrs. Collins <span>— Teacher, Rochester</span></div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>"Hen weekend from Kent to Edinburgh. Long journey but so comfortable — driver was brilliant. Arrived safely and on time. Couldn't have asked for more."</p><div class="reviewer">Lauren S. <span>— Chatham, Kent</span></div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>"Airport run to Heathrow with 14 of us. Completely stress-free. Driver tracked our return flight and was already waiting. Will only use these from now on."</p><div class="reviewer">David H. <span>— Gillingham, Kent</span></div></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <span class="section-tag">Get In Touch</span>
+  <span class="label">Get In Touch</span>
   <h2>Let's Plan Your Journey</h2>
-  <p>Have a question or want to discuss a group booking? Our team is ready to help.</p>
+  <p>Have a question or want to discuss a booking? Our team is ready to help.</p>
   <div class="contact-cards">
-    <div class="contact-card">
-      <div class="icon">✉️</div>
-      <div class="label">Email Us</div>
-      <div class="value">info@londonminibustransport.co.uk</div>
-    </div>
-    <div class="contact-card">
-      <div class="icon">📍</div>
-      <div class="label">Based In</div>
-      <div class="value">Medway, Kent</div>
-    </div>
-    <div class="contact-card">
-      <div class="icon">🕐</div>
-      <div class="label">Available</div>
-      <div class="value">7 Days a Week</div>
-    </div>
+    <div class="ccard"><div class="ci">✉️</div><div class="cl">Email</div><div class="cv">info@londonminibustransport.co.uk</div></div>
+    <div class="ccard"><div class="ci">📍</div><div class="cl">Based In</div><div class="cv">Medway, Kent</div></div>
+    <div class="ccard"><div class="ci">🕐</div><div class="cl">Available</div><div class="cv">7 Days a Week</div></div>
   </div>
 </section>
 
@@ -679,8 +624,8 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="logo">
-        <div class="logo-icon">🚐</div>
-        London <span>Minibus</span> Transport
+        <div class="logo-sq">🚐</div>
+        London <em>Minibus</em> Transport
       </div>
       <p>Medway's trusted 16-seater minibus specialists. Serving Kent, London and the whole of the UK for over 10 years.</p>
     </div>
@@ -701,7 +646,6 @@
         <li><a href="#">About Us</a></li>
         <li><a href="#">Our Vehicle</a></li>
         <li><a href="#">Coverage Areas</a></li>
-        <li><a href="#">Safety &amp; Licensing</a></li>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms &amp; Conditions</a></li>
       </ul>
